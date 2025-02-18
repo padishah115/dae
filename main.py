@@ -15,6 +15,7 @@ def main():
     train_loader, val_loader = load_mnist()
 
     #Initialise DAE for black and white images (hence the input depth = 1)
+    print("Initialising DAE with random weights...")
     myDAE = DAE(input_depth=1, filter_no=32)
 
     #Hyperparameters of the model. Use the ADAM optimizer.
@@ -32,7 +33,6 @@ def main():
         )
 
     torch.save(myDAE.state_dict(), './trained_models/first_dae.pt')
-
 
 if __name__ == "__main__":
     main()
